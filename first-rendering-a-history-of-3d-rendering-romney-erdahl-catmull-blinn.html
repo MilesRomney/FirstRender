@@ -1,0 +1,490 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>First Rendering: A history of 3D rendering through a look at the contributions of Gordon Romney, Alan Erdahl, Edwin Catmull and James Blinn</title>
+
+  <link rel="image_src" href="http://www.firstrendering.com/images/site-thumbnail.jpg" />
+  <meta property="og:title" content="First Rendering: Very first complex 3D rendered object now rendered in HTML5;  and a history of 3D rendering through a look at the contributions of Romney, Erdahl, Catmull and Blinn" />
+  <meta property="og:type" content="cause" />
+  <meta property="og:url" content="http://www.firstrendering.com/first-rendering-a-history-of-3d-rendering-romney-erdahl-catmull-blinn.html" />
+  <meta property="og:image" content="http://www.firstrendering.com/images/site-thumbnail.jpg" />
+  <meta property="og:site_name" content="First Rendering: Very first complex 3D rendered object now rendered in HTML5;  and a history of 3D rendering through a look at the contributions of Romney, Erdahl, Catmull and Blinn" />
+  <meta property="fb:admins" content="17828849" />
+
+  <link href="css/page.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/detect_flash.js"></script>
+  <script type="text/javascript" src="js/swfobject.js"></script>
+  <script type="text/javascript" src="js/flowplayer-3.0.6.min.js"></script>
+  <script type="text/javascript" src="js/Three.js"></script>
+	<script type="text/javascript" src="js/RequestAnimationFrame.js"></script>
+	<script type="text/javascript" src="js/page.js"></script>
+
+</head>
+<body onload="init();">
+  <div id="ribbon">
+    <div id="header">
+      <h1>First Rendering</h1>
+      <h3>A history of 3D rendering through a look at the contributions of Gordon Romney, Alan Erdahl, Edwin Catmull and James Blinn</h3>
+      <div id="share">
+        <div id="fb">
+          <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=194758613921452&amp;xfbml=1"></script><fb:like href="http://www.firstrendering.com/first-rendering-a-history-of-3d-rendering-romney-erdahl-catmull-blinn.html" send="true" width="400" show_faces="false" font=""></fb:like>
+        </div>
+        <div id="twitter">
+          <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </div>
+      </div>
+    </div>
+    <div id="margin-left"> </div>
+    <div id="page">
+      <h2 class="no-margin">The Soma Cube</h2>
+      <h4>Gordon Romney Rendering of the first complex, manipulable, colored 3D virtual object</h4>
+      <div id="rendering">
+        <div id="render-canvas" class="canvas"></div>
+        <div id="render-webgl" class="canvas" style="display:none"></div>
+        <div id="render-video" class="canvas" style="display:none"><a id="player" href="videos/gordon-romney-soma-cube-html5.mov"></a></div>
+        <div id="menu">
+          <a class="item a-canvas selected" href="javascript:void(0);" onclick="toggleRender('canvas');">HTML5 (Canvas renderer) <div class="subtext">Firefox, Chrome and Safari supported</div></a>
+          <a class="item a-webgl" href="javascript:void(0);" onclick="toggleRender('webgl');">HTML5 (WebGL renderer) <div class="subtext">Browser support currently limited to Chrome</div></a>
+          <a class="item a-video" href="javascript:void(0);" onclick="toggleRender('video');">Video <div class="subtext">A video capture of the HTML5 WebGL render ;  requires Flash support</div></a>
+          <div class="item verbiage">
+            The first complex (non-square) object ever rendered (from 1968) is rendered here in HTML5 and Javascript. In WebGL (and the video capture of the WebGL render), it's flawless.  The Canvas render displays face anomalies (they appear and disappear).  A solution to this very phenomenon was one of Gordon Romney's first contributions to 3D, and had to be solved before he could capture a pristine rendering of the Soma Cube (though the solution, it seems, hasn't found its way into the Three.js Javascript rendering library over 40 years later!)
+          </div>
+        </div>
+      </div>
+      <p>Romney, in 1967, acquired a finely crafted rosewood version of the Soma Cube that was invented by Piet Hein in 1933 and
+        who authorized its manufacture by Skj&#248;de Skjern of Denmark. <span class="attribution">[S1]</span>
+        It inspired the creation of a virtual Soma Cube that could be colored, manipulated and rendered.</p>
+      <div class="image figure1">
+        <img src="images/soma-wooden-pieces.jpg" />
+        <div class="caption">
+          Figure 1. The seven, individual rosewood pieces that form the Soma Cube.
+        </div>
+        <div class="hint L-tricube">"L" tricube</div>
+        <div class="hint L-tetracube">"L" tetracube</div>
+        <div class="hint S-tetracube">"S" tetracube</div>
+        <div class="hint RS-tetracube">Right screw tetracube</div>
+        <div class="hint T-tetracube">"T" tetracube</div>
+        <div class="hint LS-tetracube">Left screw tetracube</div>
+        <div class="hint B-tetracube">Branch tetracube</div>
+      </div>
+      
+      <p>The assembled Skj&#248;de redwood Soma cube is shown in Figure 2a, with its corresponding original, un-edited 3D
+      graphics rendered counterpart in Figure 2b.</p>
+      
+      <div class="tbl">
+        <div class="col1">
+          <div class="image figure2a">
+            <img src="images/soma-wooden-whole.jpg" />
+            <div class="caption">
+              Figure 2a.  Assembled Rosewood Soma Cube
+            </div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="image figure2b">
+            <img src="images/soma-rendered-whole.jpg" />
+            <div class="caption">
+              Figure 2b.  Assembled 3D Rendered Soma Cube
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p>Each of the individual seven pieces of the Soma Cube were virtually created by the following process:</p>
+      
+      <ol>
+        <li><u>Object Assembly</u>: A cube meta-object was selected from a pre-defined primitive set of geometric objects using
+        the light-pen driven Assembly program. The cube appeared as a stick-drawn object on the IDI monochrome vector display with
+        no hidden lines removed.</li>
+        <li>The three and four cube pieces that form the Soma Cube were assembled by attaching cubes to form independent
+        sub-objects for the Soma Cube primary object.</li>
+        <li>The color mixing parameters for a sub-object were specified.</li>
+        <li>The view point, flim contrast, illumination intensity, and pixel density (64, 128, 256, 512, 1024 or 2048) were specified.</li>
+        <li>The centroid for the assembled Soma cube was specified and the pieces were assembled based on the 240 possible
+        solutions to the puzzle.</li>
+        <li><u>Object(s) Manipulation</u>: Linear algebra operations of translations and rotations were specified to position the
+        assembled object as desired.  A sequence string of operations were possible by the Manipulation program.</li>
+        <li><u>Picture Rendering</u>: The desired camera and film were mounted on the Tektronix oscilloscope.
+        The appropriate filter was pulled into position between the CRT and the film. The Rendering program was initiated by
+        light-pen to generate respectively the Red, Blue and Green scans to produce the rendered color image from the virtual
+        object.</li>
+      </ol>
+      
+      <p>An "exploded" original, un-edited 3D rendering of the Soma Cube, manipulated by linear algebra operations (a 90 degree
+      counter-clockwise rotation of Figure 2b) is shown in Figure 3a and a simulated view with the Rosewood Soma Cube is shown
+      in Figure 3b.</p>
+      
+      <div class="tbl">
+        <div class="col1">
+          <div class="image figure3a">
+            <img src="images/soma-rendered-exploded.jpg" />
+            <div class="caption">
+              Figure 3a.  Exploded 3D Rendered Soma Cube
+            </div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="image figure3b">
+            <img src="images/soma-wooden-exploded.jpg" />
+            <div class="caption">
+              Figure 3b. Exploded  Rosewood Soma Cube
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <h4>References</h4>
+      
+      <ul>
+        <li>[S1] <a href="http://www.fam-bundgaard.dk/SOMA/NEWS/N030310.HTM">http://www.fam-bundgaard.dk/SOMA/NEWS/N030310.HTM</a><br/>
+          Retrieved by GWRomney 110716 02:58 UTC</li>
+      </ul>
+      <br/>
+      <h2>First Rendering</h2>
+      <h3>Forward</h3>
+      
+      <u>"One of the Lucky Guys" of the Evans Computer Graphics Initiative at Utah</u>
+      
+      <p>Astronomy uses the term "first light" to describe the thrilling moment of capture of first light through a telescope.
+      "First Rendering" describes the thrilling moment of rendering, for visual viewing, the first virtually created 3D objects
+      at the Evans Computer Graphics center of excellence at the University of Utah (Utah).</p>
+      
+      <p>We called it simply the Computer Graphics Lab because little did we grad students know in the beginning that the
+      Advanced Research Projects Agency (later known as DARPA), sponsored by the Department of Defense, had chartered Dr.
+      David C. Evans to create from scratch a Computer Graphics Center of Excellence (CoE) to produce a computer graphics
+      industry to meet the developing needs of U.S. defense.  CoEs were not generally known in the mid 1960s, but today they
+      are familiar,  &mdash;almost every university has at least one CoE for some area of pure or applied research.</p>
+      
+      <p>This is the story of the Evans Computer Graphics initiative during a twelve year period from 1965 through 1977
+      of what I will address as 1) the Beginning, 2) Animation and 3) Realism.  This was a time of excitement, discovery,
+      disappointment, improvements, and renewed excitement, as many hands contributed to the "art" and "science" as technology
+      unfolded exponentially and we all were swept up in its increasing waves of discovery.  One who wrote about this period
+      of the unfolding, creative period of Computer Graphics stated,</p>
+      
+      <p>"Almost every influential person in the modern computer-graphics community either passed through the University of
+      Utah or came into contact with it in some way." <span class="attribution">[10]</span></p>
+      
+      <p>Pat Hanrahan (a Stanford University Computer Science professor), said, in a 2010 interview with Ed Catmull, currently
+      president of both Disney Animation Studio and Pixar Studio, "You're one of those lucky guys who got to go to the University
+      of Utah during what was probably one of the most creative times in computing." <span class="attribution">[6]</span></p>
+      
+      <p>I, too, was one of the "lucky guys" and actually the first graduate student assigned by Dr. David C. Evans, newly
+      appointed Chair of the Computer Science program to work on computer graphics in the fall of 1965.  This story relates my
+      personal observations and experiences at the seminal stage of 3D graphics.</p>
+      
+      <p>At first this new discipline wasn't even part of an official Computer Science department, but was under the
+      Electrical Engineering School. I came from Princeton upon graduation where I had majored in Physics and completed an A.B.
+      thesis on <em>Thermoluminescence of KI at Low Temperatures</em>. Thermoluminescence is light that is emitted as a crystalline
+      material, previously hit by high energy from a source such as x-rays, is warmed up causing electrons to jump out of a
+      higher state to a lower state and emit a photon of light.  My research experience with spectrophotometers was enhanced by
+      the experience gained at Utah under prominent physical chemist Henry Eyring during the summers. </p>
+      
+      <p>Little did I know that the transition to the developing field of Computer Science would introduce me to the creative
+      virtual world of 3D rendering and a new kind of "First Light." Although I had built my first analog computer to simulate
+      a moon shot in 1958 I had used a digital computer for the first time only the year before, in 1964, on my Princeton
+      thesis. The digital computer age was then in its infancy and I was intrigued with computers.  As a research assistant at
+      Princeton in Physics, I had created solid state particle detectors that could perceive invisible elementary particle
+      photons of light Now I worked to create virtual images of real-life objects inside a computer memory to be shown in a
+      visible format to a human.  I used the word "rendering" in a computer context to describe this process.  Virtual objects
+      were <em>rendered</em> in a way that a human could "see" the object as though it were a real, solid object.  Here was a chance to
+      combine both of my professional passions &mdash; Light and Computers! </p>
+      
+      <p>This story of <em>First Rendering</em> is an expression of my appreciation for the great mentors and colleagues who made it
+      possible.  The National Science Foundation has a name for the type of synergistic, collaborative environment engendered by
+      Evans at Utah &mdash; Collaboratory. Utah was one of the first computer collaboratories during a uniquely creative time.</p>
+      
+      <h3>David C. Evans and Computer Graphics</h3>
+      
+      <p><u>Meeting ARPA's Goal by Creating a Computer Graphics Center of Excellence</u></p>
+      
+      <p>The history of computer graphics is illustrative&mdash;even prototypical&mdash;of the kind of creative development that
+      DARPA sponsored research seeks to foster. In 1965 the Advanced Research Projects Agency (ARPA) Information Processing
+      Techniques Office (IPTO) identified the need for supporting the development of computer graphics technology for defense
+      purposes by funding a center of excellence for Computer Graphics (CG) at the University of Utah (Utah) under the direction
+      of Dr. David C. Evans. <span class="attribution">[1]</span>  As one of the Utah Computer Science (CS) areas of specialization
+      Computer Graphics set the Utah program apart from all others. "This new department would become the world's primary research
+      center for computer graphics." <span class="attribution">[2]</span> Within four years it was ranked nationwide by students at
+      MIT and Stanford as one of the top three CS programs in the U.S. largely because of the faculty attracted by the ARPA funding
+      and the CG research initiated. <span class="attribution">[3]</span>  Stellar faculty joined Evans and R. E. Stephenson at Utah such as Ivan Sutherland
+      (Harvard and ARPA/IPTO), Thomas Stockham (MIT), Robert Barton '69 (Lead architect for Burroughs), and Charles Seitz '70 (MIT).  Sutherland was viewed as the "creator of computer graphics" and to have him at close proximity inspired the work of all.  He served as Romney's thesis advisor and mentor and contributed his vast knowledge of homogeneous linear transformations that made 3D spatial manipulation mathematically and visually sound.</p>
+      
+      <p><u>Romney &mdash; First Computer Graphics Ph.D. Student</u></p>
+      
+      <p>Evans' vision dealt with producing realistic, digital 3D images of virtual objects using raster scan technology (similar
+      to that used in TVs). This challenge he presented to Gordon Romney, his first Ph.D. student in computer graphics, and Romney
+      provided a first solution within one year. Technology was limited, however, and Romney was given a  Univac 1108 (pre-FASTRAND
+      mass storage version), card reader, and line printer as his tools. The contribution of four significant team members, who studied
+      and performed graphics research between the years of 1965 and 1978, is described below. Romney and Alan Erdahl were the
+      "Beginning."  Edwin Catmull produced the first "Animation" of a life-like form, the hand. James Blinn constantly sought
+      "Realism" in the 3D images rendered. The ARPA/IPTO "jump-start" funding of $5 million per year for approximately eight years
+      achieved the critical integration of elements to create the very first digital images of shaded color, perspective, solid
+      objects and provided a platform for the literal explosion of technology by subsequent investigators that has created today's
+      computer graphics industry.  The ability to create virtual objects mathematically and produce visual images that the brain
+      recognizes in "life-like" realism has revolutionized the modeling, entertainment, medical, simulation, game-playing and
+      mobile device graphics industries.  Since 1965, and the "Beginning," the computer graphics industry, referred to by Blinn
+      <span class="attribution">[4]</span> and others as the "computer graphics revolution" has achieved its present annual growth rate of 16.5% and revenue
+      generation in excess of $92B. <span class="attribution">[5]</span></p>
+      
+      <p>These four, Romney, Erdahl, Catmull and Blinn, highlighted from the computer graphics graduate students, were not all
+      contemporaries, and each made a different type of contribution, and improved upon and discovered new solutions to problems.
+      However they all were at Utah in CG within an eight year period and in the context of 35 U.S.C. they were joint inventors.</p>
+      
+      <p>Romney, the first CG graduate student assigned the challenge of solving the elusive hidden surface problem did so in 1966 and presented the initial renderings in the Fall Joint Computer Conference 
+      <span class="attribution">[7]</span>, and Romney, Wylie, Evans and Erdahl created the first patent. Evans flipped a coin and the winner became first author on the first paper at the FJCC and the loser became first inventor on the patent.  Chris Wylie, unfortunately, never completed a graduate degree. <span class="attribution">[8]</span> Chris Wylie, an undergraduate that came from M.I.T. assisted
+      with the initial mathematical linear algebra issues. Romney only had a Univac 1108 computer, a card reader and line printer
+      and produced the first shaded, digital image of a cube on a line printer at 2:00 am one Fall morning in 1966 with his wife, Victoria, and newborn son, present, on a blanket on the raised flooring of the computer center at the Utah Merrill Engineering Building.  For four years he worked the "graveyard
+      shift" in order to get computer time as rendering required the entire computer resource of the Univac 1108.</p>
+      
+      <p><u>Erdahl &mdash; an M.S. Student Who Allowed Virtual Objects to be Seen</u></p>
+      
+      <p>Within a year, in 1968, Erdahl developed a graphic interface enabling an oscilloscope to render visual images driven by
+      a DEC PDP-8 through a very limited speed digital to analog converter.  Time exposure photographs &mdash; Poloroid or Kodak
+      film were required to capture the "rendered" image.  The word "rendering" was now added to the lexicon of computer graphics
+      vocabulary.  This was something that happened coincidentally at the same time in Utah and at IBM.  Appel used the word in
+      a paper and Romney had been using it in his thesis that went through two years of revision. Without this primitive display
+      virtual objects would not have been visible to the human eye.  Romney machined a color paddle that would place a Red, Blue
+      or Green filter between the oscilloscope driven raster scan line for the computer virtually defined color, one line at a
+      time, and the camera lens.  Romney studied various color filters in order to select the correct transmission wavelengths
+      appropriate to produce the complete spectrum of visible colors.  There was no prior art to refer to in the creation of this display apparatus.  It is noteworthy
+      that this same approach is still used to this day in astro-photography when using CCD cameras attached to a telescope.</p>
+      
+      <p>Romney's Ph.D. dissertation, "Computer Assisted Assembly and Rendering of Solids" <span class="attribution">[11]</span> was used as a graphics primer at
+      the University of Utah and elsewhere. <span class="attribution">[17]</span> The first technical report published by Utah as part of the ARPA grant on 3D graphics (Wylie, Romney, Evans and Erdahl) was published in 1967. <span class="attribution">[18]</span> His early contributions <span class="attribution">[12,13]</span> included:</p>
+      
+      <ul>
+        <li>Realistic computer-generated digital images of three-dimensional virtual objects  described by the primitive polygon,
+        planar triangles </li>
+        <li>Output generated in a raster-scan TV-like manner that facilitates real-time display as allowed by the existing state
+        of technology</li>
+        <li>"lluminated virtually" by a single point-source of light that produced shaded continUtahs surfaces seen in perspective
+        from a single view point and in color</li>
+        <li>A solution of the 3D virtual object hidden-surface problem that produced for the display device only visible surfaces</li>
+        <li>A shading algorithm that incorporated film terminology to control color saturation, contrast and intensity</li>
+        <li>An assembly and manipulation process for three-dimensional virtual objects from a set of basic geometric shapes that
+        could be processed by a 3D rendering program</li>
+        <li>A set of 3D alphabet character font</li>
+        <li>Stereo images viewed through a Realist 3-D Stereo Slide Viewer</li>
+      </ul>
+      
+      <p>The following were among the first renderings at the "Beginning."</p>
+      
+      <div class="tbl">
+        <div class="col1">
+          <div class="image figure4a">
+            <img src="images/sample1.jpg" />
+            <div class="caption">Figure 4. 4-Head with a sides removed to view interior</div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="image figure4b">
+            <img src="images/sample2.jpg" />
+            <div class="caption">Figure 5.  Torus with an inserted Ellipsoid</div>
+          </div>
+        </div>
+      </div>
+      
+      <p>Erdahl implemented a photographic recording system that provided a digital-to-analog conversion system that displayed
+      rendered raster scan-lines on a monochrome Tektronix oscilloscope.  In 1966 Digital to Analog conversion was limited by
+      slow technology and colored displays were not yet available but Romney and Erdahl created a computer graphics assembly
+      and visualization platform that would be used by other CG students for years.  The Assembly portion of Romney's thesis
+      provided the means of using a line drawing vector display manufactured by IDI, that used a light-pen input device, to
+      create basic geometric-shaped objects out of the most primitive polygon, the triangle.  There was no keyboard, so Romney
+      drew a QWERTY keyboard on the display similar to what is used today on smart phone displays. He created a state-diagram
+      Assembly computer language that allowed him to 1) create a geometric object that appeared on the vector display as a stick
+      object, 2) manipulate size and shape, 3) attach sub-objects to form more complex objects, 4) specify the view-point location,
+      5) specify the color by providing mixing parameters and pixel density, 6) specify a centroid (to be used in effecting linear
+      transformation translations and rotations) for complex object assemblies, and 7) effect linear algebra transformations.
+      As an example of the first  multi-component object, the Soma cube, the linear algebra transformations allowed 1) exploding
+      the component sub-assemblies of the seven-pieced Soma cube so that the individual pieces were revealed and 2) rotating the
+      Soma cube to the desired viewing position.  The computer language had operators that next generated the rendering and
+      transmitted the rendered Red, Blue and Green images, sequentially, to the visualization platform, oscilloscope and camera
+      assembly for a time exposure photograph using either Polaroid or Kodak film.  Erdahl designed and implemented all of the
+      electronics needed for the visualization platform and the IDI display used for object assembly and manipulation.</p>
+      
+      <p>By the time Erdahl transitioned to industry in 1969 by joining the newly founded Evans & Sutherland Computer Corporation
+      (E&S) two more patents were underway by other Ph.D. students, Warnock (1967-1969) and Watkins (1967-1971).  Erdahl was
+      awarded another patent for his display technology in 1972 <span class="attribution">[9]</span>.  Romney acknowledges the great help provided by other students such as Devon Mecham, Lee Copeland and Mike Archuleta.  Gary Watkins shared the same office and the last two years of Romney’s research and contributed extensively to the rendering initiative.</p>
+      
+      <p>The proximity of E&S adjacent to the Utah campus ensured continuity between research phases and coordination of Ph.D.
+      research topics as students graduated, and others assumed responsibilities. </p>
+      
+      <p>Using the graphics lab initially set up by Erdahl and Romney, a Ph.D. thesis researcher could focus on an improved
+      hidden surface algorithm (Warnock '69, Watkins '71, Catmull '74), shading algorithm (Gourard '71, Catmull '74), display
+      techniques (Watkins '70 real-time display, Catmull '74 movies), faster rendering (Fuchs '75), and curved surfaces
+      (Gourard '71, Phong '73, Clark '74, Parke '74, Catmull '74, Newell '75, Blinn '78) as higher speed electronics and
+      computers became available over the next decade.  The introduction by Intel of the first microprocessor in 1971, and
+      both the Intel 8080 and the Motorola 6800 in 1974 changed the display technology and faster logic made real-time displays
+      a possibility.</p>
+      
+      <p><u>Catmull &mdash; First Animation of a Human Hand</u></p>
+      
+      <p>Catmull  modeled curved surfaces bringing realism to the planar-surfaced objects that Romney created.  In contrast
+      to the Spartan circumstances that Romney and Erdahl encountered seven years earlier, Catmull remarked in an interview
+      that as a consequence of the ARPA funding CG the very latest equipment including a DEC PDP-10 computer. He remarked,
+      "We were expected to create original work. We were at the frontier, and our job was to expand it&#x2026; . For me,
+      the challenge was to figure out how to do real curved surfaces, because other than quadric surfaces, which were way
+      too limited, everything was made up of polygons. So, my first idea was to find a way to actually bend polygons to have
+      them look right." The solution was to work with B-spline surfaces. "I thought my most ingenious idea was a new method
+      for subdividing a surface." <span class="attribution">[14]</span>  His goal was always to make an animated film.  When he graduated he thought it would
+      take 10 years to have technology fast enough to render an animated film.  It actually took 20 years.</p>
+      
+      <p>Catmull, for his Ph.D. thesis, developed Z-Buffering, texture-mapping algorithms, and methods for
+      the display of bicubic surfaces. He wrote papers on hidden-surface algorithms, anti-aliasing, and, of course, computer
+      animation and geometrical modeling.  Catmull, said the following regarding the research funding: "I always looked at
+      ARPA at that time as being a spectacularly successful example of governmental policy moving things in the right direction.
+      It had very low bureaucracy and trusted that if you give funding to smart people, some interesting things will happen.
+      I came up out of that environment, and to this day I believe it's a great thing to do. That doesn't mean you won't have
+      some failures or some abuses along the way, but that model of funding universities was spectacularly successful." <span class="attribution">[6]</span></p>
+      
+      <p><u>Blinn &mdash; Realistic Objects</u></p>
+      
+      <p>Blinn had fun with Texture and Bump Mapping as shown in the adjacent Donut. His activities were as follows:</p>
+      
+      <p>1975:  Paint program, Implement/refine Catmull rendering algorithm, texture mapping refinements and reflection mapping</p>
+      
+      <div class="image donut float-right">
+        <img src="images/donut.jpg" />
+        <div class="caption">Torus with Texture Mapping</div>
+      </div>
+      
+      <p>1976: Torrance-Sparrow light reflection model, bump mapping</p>
+       
+      <p>1977: Scan line algorithm for bicubic patches, write up all as thesis</p>
+      
+      <p>1978: Blinn Ph.D. Thesis "Computer Display of Curved Surfaces" <span class="attribution">[19]</span></p>
+      
+      <p>In the early '70s ARPA/funding had shifted to ARPANET as Utah became the third university in 1969 to be connected to the
+      new network.  The era of CG entered a new phase with fewer resources.  The computer graphics industry, however, had been
+      seeded and with ever increasing technology real-time, dynamic graphics began to be accessible by many.</p>
+      
+      <p>Romney, ahead of the technology curve, took computer graphics concepts to Disney in 1969 but was told that it saw no
+      applicability to animation and cinematography.  Instead, Romney was the first Quant on Wall Street, a Princeton grad, introduced graphics into the boardroom of Citibank for
+      decision making, was on the team that created the first banking ATM, and introduced distributed processing into banking.</p>
+      
+      <p>Erdahl was with Evans & Sutherland Computer Corporation for thirty-four years as a Design Engineer and Program Manager.
+      Knowledge gained from the CG projects, allowed the flight simulators to produce more realistic full-color-shaded-images.
+      He contributed to the design, testing and installation for imaging molecular compounds, simulating large tanker, harbor
+      simulation and crew training and Space Shuttle simulation for NASA Johnson.  Beginning in 1973 E&S produced a wide variety
+      of visual systems for flight simulators. These were used for commercial airlines, military aircraft, the NASA space shuttle,
+      and a variety of other vehicle simulators.  These simulators have undoubtedly saved many lives both of pilots and passengers.
+      Simulators save millions of dollars each year in fuel and airplane cost.  They also allow pilots to train for situations
+      such as equipment failure and water ditchings that would be too dangerous with real airplanes</p>
+      
+      <p>Blinn joined the Jet Propulsion Laboratory and produced computer graphics animations for various space missions to
+      Jupiter, Saturn and Uranus, for Carl Sagan's PBS series COSMOS and for the Annenberg/CPB funded project "The Mechanical
+      Universe", a 52 part telecourse to teach college level physics.</p>
+      
+      <div class="tbl">
+        <div class="col1">
+          <div class="image figure5a">
+            <img src="images/saturn.jpg" />
+            <div class="caption">
+              Saturn
+            </div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="image figure5b">
+            <img src="images/dna.jpg" />
+            <div class="caption">
+              DNA
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p>Blinn also did the animation for Project MATHEMATICS!  videos that explore basic topics in high school mathematics in
+      ways that cannot be done at the chalkboard or in a textbook. They were produced at the CalTech. Millions of viewers have
+      seen the videos. They have been enthusiastically received by teachers and students nationwide and have captured first-place
+      honors at a dozen major film and video festivals <span class="attribution">[15]</span>. In 1991, he received the MacArthur Fellowship in recognition of and
+      to allow continuation of his work in educational animation.</p>
+      
+      <p>Blinn was a graphics fellow at Microsoft Research and has devoted his career to building a sturdy bridge between art and
+      science.  Over a twenty year period, 1987 to 2007, Blinn published 83 articles on <em>Jim Blinn's Corner</em> on computer graphics
+      topics. In 1989, he received the IEEE Outstanding Contribution Award for Jim Blinn's Corner.  His skills in simplifying
+      obscure mathematical concepts used in computer graphics are legendary. He has focused much of his career on achieving a
+      three-dimensional look. One of his most quoted statements is "Traditionally, there's been a division between the left brain,
+      right brain type of thinking," Blinn said. "Computer graphics bridges that gap, and that's important to being a complete
+      person and understanding how the world works." <span class="attribution">[16]</span></p>
+      
+      <p>With the release of Toy Story in 1995, Pixar Animation Studios' president Ed Catmull achieved a lifelong goal: to make
+      the world's first feature-length, fully computer-generated movie. It was the culmination of two decades of work that
+      started in CG with the first animation of his left hand. Following Utah he was with the New York Institute of Technology,
+      Lucasfilm, and finally Pixar, cofounded with Steve Jobs and John Lasseter in 1986 and acquired by Disney in 2006 at a
+      valuation of $7.4 billion.  Catmull's original dream has extended into a string of successful computer-animated movies.
+      Catmull received an Oscar "for significant advancements to the field of motion picture rendering as exemplified in Pixar's
+      RenderMan" in 2001.  He was elected to the National Academy of Engineering and founded the Utah Engineering National
+      Advisory Council and has served as its Chair.</p>
+      
+      <h3 class="center">The animations below were produced by Pixar using the CG technology</h3>
+      
+      <div class="pixar"><img src="images/pixar-animations.jpg" /></div>
+      
+      <p><u>Return on Investment</u></p>
+      
+      <p>The defense industry received its return on investment exponentially from approximately eight-year seeding of the computer
+      graphics industry at $5MM per year. This  funding was sufficient to train Ph.D. graduate students and develop a close
+      synergy with industry partners like Evans and Sutherland Computer Corporation (E&S) that licensed the computer graphics
+      patents developed by CG.  DARPA encouraged this close industry-academia synergy was encouraged. The CG graduates, inspired
+      by the creativity of the Utah faculty, in turn, created new companies such as Silicon Graphics, Adobe, Pixar and assisted
+      Microsoft and the Jet Propulsion Laboratory; and other CS graduates such as Steve Carr, Alan Kay, Alan Ashton, Robert Burton, and Duane Call made significant contributions to the computer field and provided additional synergy and inspiration to the CG graduates.  The Utah collaboratory created by Evans  was ever so much more than just Computer Graphics and this is simply part of the Evans story.  A spirit of entrepreneurship prevailed.  Evans inspired his students to work collaboratively and closely
+      with the faculty.  A creative <em>collaboratory</em>  lab environment akin to the J.J. Thomson (early 1900's) and Rutherford
+      (1920's) Cambridge University Cavendish labs was born, not in atomic discovery, but in computer graphics.</p>
+      
+      <p><u>Benefits</u></p>
+      
+      <p>The achievements of the David C. Evans CG Team have benefited the United States <em>economically</em> by contributing to the
+      creation of a $92 billion a year industry including the benefits of molecular modeling and of architectural, manufacturing,
+      surgical and radiation treatment simulations; <em>socially</em> by providing the entertainment, work place, and personal value of
+      computer graphics and computer animation; <em>environmentally</em> including life-saving flight and other simulation programs providing
+      major savings in fuel consumption and equipment resources; and <em>defensively</em> by meeting the needs of ARPA (now DARPA) and the
+      Department of Defense by providing simulation of aircraft, helicopters, vehicles and ships, and 3D satellite imaging for
+      intelligence. </p>
+      
+      <br/><br/>
+      
+      <h4>References</h4>
+      
+      <p>[1] <a href="http://my.t-bird.edu/files/personalfiles/134802/Fong_ARPA_Windows_bp01.pdf">http://my.t-bird.edu/files/personalfiles/134802/Fong_ARPA_Windows_bp01.pdf</a>  Retrieved 20110330 UTC 8:59, Fong, Glenn "ARPA Does Windows: The Defense Underpinning of the PC Revolution."</p>
+      <p>[2] Wikipedia, <a href="http://en.wikipedia.org/wiki/Computer_graphics">http://en.wikipedia.org/wiki/Computer_graphics</a>  Retrieved  20100125 UTC 23:15</p>
+      <p>[3] Personal communication from Dr. Duane Call, graduate of the CS program, after making visits to Stanford and MIT programs 1969.</p>
+      <p>[4] <a href="http://www.microsoft.com/presspass/features/1999/08-09blinn.mspx">http://www.microsoft.com/presspass/features/1999/08-09blinn.mspx</a> . Blinn, James</p>
+      <p>[5] Computer Graphics Revenue 2009 <a href="http://www.glgroup.com/News/Continued-growth-in-all-segements-in-computer-graphics-industry-41964.html">http://www.glgroup.com/News/Continued-growth-in-all-segements-in-computer-graphics-industry-41964.html</a></p>
+      <p>[6] Hanrahan, Pat, <a href="http://queue.acm.org/detail.cfm?id=1883592">http://queue.acm.org/detail.cfm?id=1883592</a> Retrieved 20110328 UTC 12:10</p>
+      <p>[7] Wylie Chris, Romney Gordon, Evans David C., Erdahl Alan, "Half-tone Perspective Drawings by Computer," AFIPS Proc. FJCC 31 19 November 1967.</p>
+      <p>[8] Romney, Evans, Erdahl, Wylie, United States Patent 3,621,214  in 1968</p>
+      <p>[9] Erdahl, Evans, United States Patent  3,665,408 in 1972.</p>
+      <p>[10] Rivlin, Robert, The Algorithmic Image: Graphic Visions of the Computer Age, 1986, ISBN:0914845802</p>
+      <p>[11] Romney Gordon W., "Computer Assisted Assembly and Rendering of Solids," Department of Electrical Engineering, University of Utah, August 1969</p>
+      <p>[12] Romney Gordon W., Watkins Gary S., Evans David C., "Real Time Display of Computer Generated Half-Tone Perspective Pictures," IFIP Congress 68 Proc, E72 August 1968.</p>
+      <p>[13] Romney, G., "Computer Generated Half-Tone Perspective Pictures," Electronic Communicator 3 3 March/April 1968</p>
+      <p>[14] Catmull, Edwin E. "A Subdivision Algorithm for Computer Display of Curved Surfaces" Ph.D. Dissertation, Dec. 1974.</p>
+      <p>[15] Project Mathematics website <a href="http://projectmathematics.com/">http://projectmathematics.com/</a></p>
+      <p>[16] <a href="http://www.microsoft.com/presspass/features/1999/08-09blinn.mspx">http://www.microsoft.com/presspass/features/1999/08-09blinn.mspx</a>   Retrieved 20110327 UTC 22:10</p>
+      <p>[17] J. Blinn relates having discovered the Romney thesis, #11 above, in Michigan and that it served as an impetus for
+      him to come to Utah and join the Evans team in 1975?.  Even in 2011, Blinn still has this thesis, that he regards as his initial inspiration, on his desk in Seattle.</p>
+      <p>[18] Wylie Chris, Romney Gordon, Evans David C., and Erdahl Alan, "Half-Tone Perspective Drawings by Computer," University of Utah Computer Science Technical Report 4-2, 14 November 1967.</p>
+      <p>[19] Blinn James Frederick, "Computer Display of Curved Surfaces",  Ph.D. Dissertation University of Utah Department of Computer Science, 1978.</p>
+      
+    </div>
+    <div id="margin-right"> </div>
+  </div>
+  
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-304811-13']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</body>
+</html>
