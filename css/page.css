@@ -72,8 +72,8 @@ a:hover {
 
 h1, h2, h3, h4 {
   margin: 0 0 10px 0;
-  font-family: 'Abril Fatface', serif;
-  color: rgb(234, 33, 45);
+  font-family: 'Archivo Black', sans-serif;
+  color: blue;
 }
 
 .section h2 {
@@ -93,8 +93,9 @@ h4 {
 }
 
 #header h1 {
-  font-family: 'Abril Fatface', serif;
-  font-size: 70px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 60px;
+  text-transform: uppercase;
 }
 
 #header h1, #header h3 {
@@ -103,7 +104,7 @@ h4 {
 }
 
 #header h3 {
-  font-family: 'Abril Fatface', serif;
+  font-family: 'Archivo Black', sans-serif;
   font-size: 25px;
   margin: 15px 0 50px;
   color: #000;
