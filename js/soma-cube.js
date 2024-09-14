@@ -63,7 +63,7 @@ function init() {
 
   renderer = new THREE.WebGLRenderer( { antialias: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( (window.innerWidth * 0.6), (window.innerHeight * 0.6) );
+  setSize( (window.innerWidth * 0.6), (window.innerHeight * 0.6) );
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 0.8;
   renderer.outputEncoding = THREE.sRGBEncoding;
@@ -83,18 +83,20 @@ function init() {
 }
 
 function onWindowResize() {
-
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize( window.innerWidth, window.innerHeight );
-
+  setSize();
 }
 
-//
+function setSize() {
+  const width = window.innerWidth < 600 ? window.innerWidth - 80 : window.innerWidth * 0.6;
+  const height = window.innerWidth < 600 ? window.innerHeight * 0.5 : window.innerHeight * 0.3;
+
+  renderer.setSize(width, height);
+
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}
 
 function animate() {
-  
   requestAnimationFrame( animate );
   
   var delta = clock.getDelta();
@@ -102,5 +104,4 @@ function animate() {
   if ( mixer ) mixer.update( delta );
 
   renderer.render( scene, camera );
-
 }

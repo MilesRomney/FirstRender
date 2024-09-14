@@ -1,42 +1,35 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>First Rendering: A history of 3D rendering through a look at the contributions of Gordon Romney, Alan Erdahl, Edwin Catmull and James Blinn</title>
-
-  <link rel="image_src" href="https://firstrender.net/images/site-thumbnail.jpg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-
-  <link href="css/page.css" media="screen" rel="stylesheet" type="text/css" />
-
-  <meta property="og:title" content="First Rendering: Very first complex 3D rendered object now rendered in HTML5;  and a history of 3D rendering through a look at the contributions of Romney, Erdahl, Catmull and Blinn" />
-  <meta property="og:type" content="cause" />
-  <meta property="og:url" content="https://firstrender.net" />
-  <meta property="og:image" content="https://firstrender.net/images/site-thumbnail.jpg" />
-  <meta property="og:site_name" content="First Rendering: Very first complex 3D rendered object now rendered in HTML5;  and a history of 3D rendering through a look at the contributions of Romney, Erdahl, Catmull and Blinn" />
-  <meta property="fb:admins" content="17828849" />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script type="module" src="js/soma-cube.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Rendering: A history of 3D rendering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <div id="ribbon">
-    <div id="header">
+  <main>
+    <article>
       <h1>First Rendering</h1>
-      <h3>A brief look at the earliest history of 3D computer graphics, and its legacy</h3>
-    </div>
-    <div id="interactive-soma-cube"></div>
-    <div id="interactive-soma-cube-caption">
-      <p>An interactive reproduction of Gordon Romney's Soma Cube renders, frames of the first-ever computer-generated animation (frames of a scene in 3D virtual space of a changing state).</p>
-    </div>
-    <div id="page">
+      <h2>A brief look at the earliest history of 3D computer graphics, and its legacy</h2>
+      
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Z9sg3W3rt2M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Z6z0oTurEsI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div id="interactive-soma-cube"></div>
+      
+      <p class="lead">(Click and drag!) An interactive reproduction of Gordon Romney's Soma Cube renders, frames of the first-ever computer-generated animation (frames of a scene in 3D virtual space of a changing state).</p>
+            
       <div class="section">
         <h2>Forward</h2>
         
-        <u>"One of the Lucky Guys" of the Evans Computer Graphics Initiative at Utah</u>
+        <p class="quote">"One of the Lucky Guys" of the Evans Computer Graphics Initiative at Utah</p>
         
         <p>Astronomy uses the term "first light" to describe the thrilling moment of capture of first light through a telescope.
         "First Rendering" describes the thrilling moment of rendering, for visual viewing, the first virtually created 3D objects
@@ -231,50 +224,7 @@
         film were required to capture the "rendered" image.  The word "rendering" was now added to the lexicon of computer graphics
         vocabulary.  This was something that happened coincidentally at the same time in Utah and at IBM.  Appel used the word in
         a paper and Romney had been using it in his thesis that went through two years of revision. Without this primitive display
-        virtual objects would not have been visible to the human eye.  Romney machined a color paddle that would place a Red, Blue
-        or Green filter between the oscilloscope driven raster scan line for the computer virtually defined color, one line at a
-        time, and the camera lens.  Romney studied various color filters in order to select the correct transmission wavelengths
-        appropriate to produce the complete spectrum of visible colors.  There was no prior art to refer to in the creation of this display apparatus.  It is noteworthy
-        that this same approach is still used to this day in astro-photography when using CCD cameras attached to a telescope.</p>
-        
-        <p>Romney's Ph.D. dissertation, "Computer Assisted Assembly and Rendering of Solids" <span class="attribution">[11]</span> was used as a graphics primer at
-        the University of Utah and elsewhere. <span class="attribution">[17]</span> The first technical report published by Utah as part of the ARPA grant on 3D graphics (Wylie, Romney, Evans and Erdahl) was published in 1967. <span class="attribution">[18]</span> His early contributions <span class="attribution">[12,13]</span> included:</p>
-        
-        <ul>
-          <li>Realistic computer-generated digital images of three-dimensional virtual objects  described by the primitive polygon,
-          planar triangles </li>
-          <li>Output generated in a raster-scan TV-like manner that facilitates real-time display as allowed by the existing state
-          of technology</li>
-          <li>"lluminated virtually" by a single point-source of light that produced shaded continUtahs surfaces seen in perspective
-          from a single view point and in color</li>
-          <li>A solution of the 3D virtual object hidden-surface problem that produced for the display device only visible surfaces</li>
-          <li>A shading algorithm that incorporated film terminology to control color saturation, contrast and intensity</li>
-          <li>An assembly and manipulation process for three-dimensional virtual objects from a set of basic geometric shapes that
-          could be processed by a 3D rendering program</li>
-          <li>A set of 3D alphabet character font</li>
-          <li>Stereo images viewed through a Realist 3-D Stereo Slide Viewer</li>
-        </ul>
-        
-        <p>The following were among the first renderings at the "Beginning."</p>
-        
-        <div class="tbl">
-          <div class="col1">
-            <div class="image figure4a">
-              <img src="images/sample1.jpg" />
-              <div class="caption">Figure 4. 4-Head with a sides removed to view interior</div>
-            </div>
-          </div>
-          <div class="col2">
-            <div class="image figure4b">
-              <img src="images/sample2.jpg" />
-              <div class="caption">Figure 5.  Torus with an inserted Ellipsoid</div>
-            </div>
-          </div>
-        </div>
-        
-        <p>Erdahl implemented a photographic recording system that provided a digital-to-analog conversion system that displayed
-        rendered raster scan-lines on a monochrome Tektronix oscilloscope.  In 1966 Digital to Analog conversion was limited by
-        slow technology and colored displays were not yet available but Romney and Erdahl created a computer graphics assembly
+        virtual objects would not have been visible to the human eye.  Romney and Erdahl created a computer graphics assembly
         and visualization platform that would be used by other CG students for years.  The Assembly portion of Romney's thesis
         provided the means of using a line drawing vector display manufactured by IDI, that used a light-pen input device, to
         create basic geometric-shaped objects out of the most primitive polygon, the triangle.  There was no keyboard, so Romney
@@ -292,7 +242,7 @@
         
         <p>By the time Erdahl transitioned to industry in 1969 by joining the newly founded Evans & Sutherland Computer Corporation
         (E&S) two more patents were underway by other Ph.D. students, Warnock (1967-1969) and Watkins (1967-1971).  Erdahl was
-        awarded another patent for his display technology in 1972 <span class="attribution">[9]</span>.  Romney acknowledges the great help provided by other students such as Devon Mecham, Lee Copeland and Mike Archuleta.  Gary Watkins shared the same office and the last two years of Romney’s research and contributed extensively to the rendering initiative.</p>
+        awarded another patent for his display technology in 1972 <span class="attribution">[9]</span>.  Romney acknowledges the great help provided by other students such as Devon Mecham, Lee Copeland and Mike Archuleta.  Gary Watkins shared the same office and the last two years of Romney's research and contributed extensively to the rendering initiative.</p>
         
         <p>The proximity of E&S adjacent to the Utah campus ensured continuity between research phases and coordination of Ph.D.
         research topics as students graduated, and others assumed responsibilities. </p>
@@ -456,21 +406,13 @@
         <p>[18] Wylie Chris, Romney Gordon, Evans David C., and Erdahl Alan, "Half-Tone Perspective Drawings by Computer," University of Utah Computer Science Technical Report 4-2, 14 November 1967.</p>
         <p>[19] Blinn James Frederick, "Computer Display of Curved Surfaces",  Ph.D. Dissertation University of Utah Department of Computer Science, 1978.</p>
       </div>
-    </div>
-  </div>
+    </article>
+  </main>
   
-  <script type="text/javascript">
+  <footer>
+    <p>&copy; 2024 First Rendering. All rights reserved.</p>
+  </footer>
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-304811-13']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
+  <script type="module" src="js/soma-cube.js"></script>
 </body>
 </html>
