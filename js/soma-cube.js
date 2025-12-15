@@ -25,7 +25,7 @@ function init() {
 
   new RGBELoader()
     .setDataType( THREE.UnsignedByteType )
-    .setPath( 'https://threejs.org/examples/textures/equirectangular/' )
+    .setPath( '/images/' )
     .load( 'royal_esplanade_1k.hdr', function ( texture ) {
 
       var envMap = pmremGenerator.fromEquirectangular( texture ).texture;
